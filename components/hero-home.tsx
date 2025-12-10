@@ -44,14 +44,14 @@ export default function HeroHome() {
               data-aos-delay={400}
             >
               <Link
-                href="#"
+                href="https://github.com/medgency3004-startup"
                 className="btn rounded-full bg-indigo-500 px-8 text-white shadow-sm hover:bg-indigo-600"
               >
                 Support Us →
               </Link>
 
               <Link
-                href="#"
+                href="https://github.com/medgency3004-startup"
                 className="btn rounded-full bg-slate-700 px-8 text-white shadow-sm hover:bg-slate-600"
               >
                 Schedule Demo

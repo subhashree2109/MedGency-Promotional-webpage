@@ -1,13 +1,21 @@
 import Logo from "./logo";
 import Image from "next/image";
 import FooterIllustration from "@/public/images/footer-illustration.svg";
+import React from "react";
 
 export default function Footer() {
-  const handlePlaceholder = (e) => e.preventDefault();
+
+  // ⭐ FIXED — added proper React event type
+  const handlePlaceholder = (
+    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>
+  ) => {
+    e.preventDefault();
+  };
 
   return (
     <footer>
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+
         {/* Footer illustration */}
         <div
           className="pointer-events-none absolute bottom-0 left-1/2 -z-10 -translate-x-1/2"
@@ -23,7 +31,7 @@ export default function Footer() {
         </div>
 
         <div className="grid grid-cols-2 justify-between gap-12 py-8 sm:grid-rows-[auto_auto] md:grid-cols-4 md:grid-rows-[auto_auto] md:py-12 lg:grid-cols-[repeat(4,minmax(0,140px))_1fr] lg:grid-rows-1 xl:gap-20">
-          
+
           {/* 1st block */}
           <FooterColumn
             title="Product"
@@ -87,7 +95,7 @@ export default function Footer() {
                 <span className="text-gray-700"> · </span>
 
                 <a
-                  href="#"
+                  href="https://github.com/medgency3004-startup"
                   onClick={handlePlaceholder}
                   className="text-indigo-200/65 transition hover:text-indigo-500"
                 >
@@ -122,7 +130,14 @@ export default function Footer() {
   );
 }
 
-function FooterColumn({ title, links, onClick }) {
+// ⭐ FIXED — added proper typing for props
+type FooterColumnProps = {
+  title: string;
+  links: string[];
+  onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+};
+
+function FooterColumn({ title, links, onClick }: FooterColumnProps) {
   return (
     <div className="space-y-2">
       <h3 className="text-sm font-medium text-gray-200">{title}</h3>
@@ -130,7 +145,7 @@ function FooterColumn({ title, links, onClick }) {
         {links.map((text) => (
           <li key={text}>
             <a
-              href="#"
+              href="https://github.com/medgency3004-startup"
               onClick={onClick}
               className="text-indigo-200/65 transition hover:text-indigo-500"
             >
@@ -143,7 +158,13 @@ function FooterColumn({ title, links, onClick }) {
   );
 }
 
-function SocialLink({ href, aria, svgPath }) {
+type SocialLinkProps = {
+  href: string;
+  aria: string;
+  svgPath: string;
+};
+
+function SocialLink({ href, aria, svgPath }: SocialLinkProps) {
   return (
     <li>
       <a
