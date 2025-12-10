@@ -267,7 +267,7 @@ export function Testimonial({
             <span className="text-gray-700"> - </span>
             <a
               className="text-indigo-200/65 transition-colors hover:text-indigo-500"
-              href="#0"
+              href="https://github.com/medgency3004-startup#0"
             >
               {testimonial.company}
             </a>
